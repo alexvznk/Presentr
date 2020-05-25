@@ -119,7 +119,7 @@ public class Presentr: NSObject {
                 return
             }
             let correctedOrigin = view.convert(view.frame.origin, to: nil) // Correct origin in relation to UIWindow
-            contextFrameForPresentation = CGRect(x: correctedOrigin.x, y: correctedOrigin.y, width: view.bounds.width, height: view.bounds.height)
+            contextFrameForPresentation = CGRect(x: correctedOrigin.x, y: correctedOrigin.y, width: view.frame.width, height: view.frame.height)
         }
     }
 
