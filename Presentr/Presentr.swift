@@ -114,12 +114,12 @@ public class Presentr: NSObject {
     /// Uses the ViewController's frame as context for the presentation. Imitates UIModalPresentation.currentContext
     public weak var viewControllerForContext: UIViewController? {
         didSet {
-            guard let viewController = viewControllerForContext, let view = viewController.view else {
+            guard let viewController = viewControllerForContext, let view = viewController.view.superview? else {
                 contextFrameForPresentation = nil
                 return
             }
             let correctedOrigin = view.convert(view.frame.origin, to: nil) // Correct origin in relation to UIWindow
-            contextFrameForPresentation = CGRect(x: correctedOrigin.x, y: correctedOrigin.y, width: view.frame.width, height: view.frame.height)
+            contextFrameForPresentation = CGRect(x: correctedOrigin.x, y: correctedOrigin.y, width: view.bounds.width, height: view.bounds.height)
         }
     }
 
