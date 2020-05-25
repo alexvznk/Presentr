@@ -114,7 +114,7 @@ public class Presentr: NSObject {
     /// Uses the ViewController's frame as context for the presentation. Imitates UIModalPresentation.currentContext
     public weak var viewControllerForContext: UIViewController? {
         didSet {
-            guard let viewController = viewControllerForContext, let view = viewController.view.superview? else {
+            guard let viewController = viewControllerForContext, let view = viewController.view.superview else {
                 contextFrameForPresentation = nil
                 return
             }
